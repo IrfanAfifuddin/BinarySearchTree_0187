@@ -62,7 +62,8 @@ void search(string element, Node*& parent, Node*& currentNode) {
     while ((currentNode != nullptr) && (currentNode->info != element))
     {
         parent = currentNode;
-
+        if (element < currentNode->leftchild)
+            currentNode = currentNode->leftchild;
     }
 }
 
