@@ -67,11 +67,105 @@ public:
                 currentNode = currentNode->rightchild;
         }
     }
+
+    void inorder(Node* ptr)
+    {
+        if (ROOT == nullptr)
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+        if (ptr != nullptr)
+        {
+            inorder(ptr->leftchild);
+            cout << ptr->info << " ";
+            inorder(ptr->rightchild);
+        }
+    }
+
+    void preorder(Node* ptr)
+    {
+        if (ROOT == nullptr)
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+        if (ptr != nullptr)
+        {
+            cout << ptr->info << " ";
+            preorder(ptr->leftchild);
+            preorder(ptr->rightchild);
+        }
+    }
+
+    void postorder(Node* ptr)
+    {
+        if (ROOT == nullptr)
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+        if (ptr != nullptr)
+        {
+            cout << ptr->info << " ";
+            postorder(ptr->leftchild);
+            postorder(ptr->rightchild);
+        }
+    }
 };
-
-
 
 int main()
 {
-    
+    BinaryTree x;
+    while (true)
+    {
+        cout << "\nMenu" << endl;
+        cout << "1. Implement insert operation" << endl;
+        cout << "2. Peform indorder traversal" << endl;
+        cout << "3. Peform preorder traversal" << endl;
+        cout << "4. Peform postorder traversal" << endl;
+        cout << "5. Exit" << endl;
+        cout << "\nEnter your choise (1-5) : ";
+
+        char ch;
+        cin >> ch;
+        cout << endl;
+
+        switch (ch)
+        {
+        case '1':
+        {
+            cout << "Enter a word: ";
+            string word;
+            cin >> word;
+            x.insert(word);
+            break;
+        }
+        case '2':
+        {
+            x.inorder(x.ROOT);
+            break;
+        }
+        case '3':
+        {
+            x.preorder(x.ROOT);
+            break;
+        }
+        case '4':
+        {
+            x.postorder(x.ROOT);
+            break;
+        }
+        case '5':
+        {
+            return 0;
+        }
+        default :
+        {
+            cout << "Invalid Option!!!" << endl;
+            break;
+        }
+        }
+    }
+    return 0;
 }
