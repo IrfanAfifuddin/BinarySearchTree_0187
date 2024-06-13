@@ -42,6 +42,11 @@ public:
             ROOT = newNode; // Mark the new node as ROOT
             return; //exit
         }
+
+        if (element < parent->info) // If the values in the data field of the new node is less than that of the
+        {
+            parent->leftchild = newNode; // Make the left child of the parent to the new node
+        }
     }
 };
 
