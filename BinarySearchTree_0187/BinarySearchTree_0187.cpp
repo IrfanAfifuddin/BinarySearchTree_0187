@@ -63,7 +63,7 @@ public:
             parent = currentNode;
             if (element < currentNode->info)
                 currentNode = currentNode->leftchild;
-            else
+            else 
                 currentNode = currentNode->rightchild;
         }
     }
