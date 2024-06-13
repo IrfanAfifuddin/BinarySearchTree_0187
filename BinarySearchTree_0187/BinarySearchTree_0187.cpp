@@ -59,6 +59,11 @@ void search(string element, Node*& parent, Node*& currentNode) {
     // this function searches the currentNode of the specified Node as current Node of its parents
     currentNode = ROOT;
     parent = nullptr;
+    while ((currentNode != nullptr) && (currentNode->info != element))
+    {
+        parent = currentNode;
+
+    }
 }
 
 int main()
