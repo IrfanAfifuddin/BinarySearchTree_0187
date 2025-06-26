@@ -39,4 +39,9 @@ public:
                 currentNode - currentNode->rightchild;
         }
     }
+
+    void insert()
+    {
+
+    }
 };
