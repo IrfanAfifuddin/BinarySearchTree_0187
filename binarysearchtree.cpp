@@ -60,5 +60,15 @@ public:
         Node *parent = nullptr;
         Node *currentNode = nullptr;
         search(x, parent, currentNode);
+
+        // step 5 : if parent is NULL (tree is empty)
+        {
+            if (parent == nullptr)
+                // 5a : allocate memory for thr new node
+                ROOT = newNode;
+
+            // 5a : exit
+            return;
+        }
     }
 };
