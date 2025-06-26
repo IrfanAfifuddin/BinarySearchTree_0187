@@ -109,4 +109,9 @@ public:
         cout << ptr->info << " "; // parent
         inorder(ptr->rightchild);
     }
+
+    void preorder(Node *ptr)
+    {
+
+    }
 };
