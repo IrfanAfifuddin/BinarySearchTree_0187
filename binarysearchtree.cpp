@@ -25,20 +25,6 @@ public:
     {
         ROOT = nullptr; // initializing ROOT to null
     }
-    void search(int element, Node *&parent, Node *&currentNode)
-    {
-        // this function searches the currentNode of the specified Node as well as the current Node of its parent
-        currentNode = ROOT;
-        parent = nullptr;
-        while ((currentNode != nullptr) && (currentNode->info != element))
-        {
-            parent = currentNode;
-            if (element < currentNode->info)
-                currentNode = currentNode->leftchild;
-            else
-                currentNode - currentNode->rightchild;
-        }
-    }
 
     void insert()
     {
@@ -64,7 +50,7 @@ public:
         // step 5 : if parent is NULL (tree is empty)
         {
             if (parent == nullptr)
-                // 5a : allocate memory for thr new node
+                // 5a : mark the new as ROOT
                 ROOT = newNode;
 
             // 5a : exit
@@ -91,11 +77,27 @@ public:
         }
     }
 
+    void search(int element, Node *&parent, Node *&currentNode)
+    {
+        // this function searches the currentNode of the specified Node as well as the current Node of its parent
+        currentNode = ROOT;
+        parent = nullptr;
+        while ((currentNode != nullptr) && (currentNode->info != element))
+        {
+            parent = currentNode;
+            if (element < currentNode->info)
+                currentNode = currentNode->leftchild;
+            else
+                currentNode - currentNode->rightchild;
+        }
+    }
+
     bool isEmpty()
     {
         // check if the tree is empty
         return ROOT == nullptr;
     }
+
     void inorder(Node *ptr)
     {
         if (isEmpty())
